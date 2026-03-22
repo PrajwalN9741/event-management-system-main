@@ -31,8 +31,10 @@ RUN if [ -f composer.json ]; then \
     composer install --no-interaction --optimize-autoloader; \
     fi
 
-# Set permissions for the instance folder (for SQLite)
-RUN mkdir -p instance && chown -R www-data:www-data instance && chmod -R 775 instance
+# Set permissions for the instance and static folders
+RUN mkdir -p instance static/quotations \
+    && chown -R www-data:www-data instance static \
+    && chmod -R 775 instance static
 
 # Configure PHP (optional, can be done via .htaccess or custom ini)
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"

@@ -17,7 +17,7 @@ ob_start();
         <a href="index.php?page=quotations&action=generate&event_id=<?php echo $event['id']; ?>" class="btn btn-outline-purple">
             <i class="bi bi-arrow-clockwise me-2"></i>Regenerate PDF
         </a>
-        <a href="<?php echo htmlspecialchars($quotation['pdf_path']); ?>" target="_blank" class="btn btn-primary">
+        <a href="<?php echo htmlspecialchars($quotation['pdf_path']); ?>" download class="btn btn-primary">
             <i class="bi bi-download me-2"></i>Download PDF
         </a>
     </div>
@@ -26,7 +26,7 @@ ob_start();
 <div class="row g-4">
     <div class="col-lg-8">
         <div class="card-panel p-0 overflow-hidden shadow" style="height: 800px;">
-            <iframe src="<?php echo htmlspecialchars($quotation['pdf_path']); ?>#toolbar=0" width="100%" height="100%" frameborder="0"></iframe>
+            <iframe src="<?php echo htmlspecialchars($quotation['pdf_path']); ?>#view=FitH" width="100%" height="100%" frameborder="0"></iframe>
         </div>
     </div>
     <div class="col-lg-4">
