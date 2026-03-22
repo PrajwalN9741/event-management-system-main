@@ -8,12 +8,13 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     libonig-dev \
     libxml2-dev \
+    libsqlite3-dev \
     unzip \
     && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) gd pdo_sqlite mbstring zip xml dom
+    && docker-php-ext-install -j$(nproc) gd pdo_mysql pdo_sqlite mbstring zip
 
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
