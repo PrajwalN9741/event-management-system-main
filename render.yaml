@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: mnnmp-events-php
+    env: docker
+    plan: free
+    region: ohio
+    # Docker automatically uses the Dockerfile in the root
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: MAIL_SERVER
+        value: smtp.gmail.com
+      - key: MAIL_PORT
+        value: 587
+      - key: MAIL_USE_TLS
+        value: "True"
+      - key: MAIL_USERNAME
+        sync: false
+      - key: MAIL_PASSWORD
+        sync: false
+      - key: MAIL_DEFAULT_SENDER
+        sync: false
+    disk:
+      name: ems-data-php
+      mountPath: /var/www/html/instance
+      sizeGB: 1
