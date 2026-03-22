@@ -20,7 +20,3 @@ services:
         sync: false
       - key: MAIL_DEFAULT_SENDER
         sync: false
-    disk:
-      name: ems-data-php
-      mountPath: /var/www/html/instance
-      sizeGB: 1
