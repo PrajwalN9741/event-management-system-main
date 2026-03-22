@@ -3,6 +3,7 @@
 require_once 'config/db.php';
 require_once 'includes/auth.php';
 require_once 'includes/functions.php';
+load_env();
 
 // Support for built-in PHP server (serves static files correctly)
 if (php_sapi_name() === 'cli-server') {
