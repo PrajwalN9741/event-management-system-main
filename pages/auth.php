@@ -14,7 +14,7 @@ if ($page === 'login') {
         
         if ($user) {
             $verify = password_verify($password, $user['password_hash']);
-            file_put_contents('debug_auth.log', "User found: " . $user['username'] . " | Pass: $password | Hash: " . $user['password_hash'] . " | Verify: " . ($verify ? 'OK' : 'FAIL') . "\n", FILE_APPEND);
+            file_put_contents('debug_auth.log', "DEBUG | Attempt: $username | Provided: $password | DB Hash: " . $user['password_hash'] . " | Verify: " . ($verify ? 'OK' : 'FAIL') . "\n", FILE_APPEND);
             if ($verify) {
                 login($user);
                 header("Location: index.php?page=dashboard");
@@ -23,7 +23,7 @@ if ($page === 'login') {
                 $error = "Invalid username or password.";
             }
         } else {
-            file_put_contents('debug_auth.log', "User NOT found: $username\n", FILE_APPEND);
+            file_put_contents('debug_auth.log', "DEBUG | User NOT found: $username\n", FILE_APPEND);
             $error = "Invalid username or password.";
         }
     }
