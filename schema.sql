@@ -63,4 +63,4 @@ CREATE TABLE IF NOT EXISTS quotations (
 -- Seed admin user (password: Admin@123)
 -- Hash generated via password_hash('Admin@123', PASSWORD_DEFAULT)
 INSERT OR IGNORE INTO users (username, email, password_hash, role) 
-VALUES ('admin', 'admin@ems.local', '$2y$10$0s0XWCrfwXIZpYzAUvOJf.NmJ6NJ4.abBRAE/syWUonzXq05DJh7i', 'admin');
+VALUES ('mnnmpevents', 'mnnmpevents@gmail.com', '$2y$12$NETbfpFec9GdhuvkoLCLJOyG2AyJGjakuTqUrY/Wq5OCV9o3tE/BG', 'admin');

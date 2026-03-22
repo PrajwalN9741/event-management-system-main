@@ -48,7 +48,7 @@ ob_start();
 
         <div class="auth-divider">or</div>
         <p class="text-center text-muted small">
-            Default admin: <code>admin</code> / <code>Admin@123</code>
+            Default admin: <code>mnnmpevents</code> / <code>MNNMP@2026</code>
         </p>
     </div>
 </div>

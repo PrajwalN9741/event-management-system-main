@@ -47,7 +47,10 @@ if ($page === 'register') {
         try {
             $stmt = $pdo->prepare("INSERT INTO users (username, email, password_hash, role) VALUES (?, ?, ?, ?)");
             $stmt->execute([$username, $email, $password_hash, $role]);
-            header("Location: index.php?page=users&success=User registered.");
+            
+            if (is_logged_in()) {
+                header("Location: index.php?page=users&success=User registered.");
+            }
             exit;
         } catch (PDOException $e) {
             $error = "Registration failed: " . $e->getMessage();
