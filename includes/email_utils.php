@@ -15,6 +15,13 @@ function send_email($to, $subject, $body, $attachments = []) {
         $mail->Password   = 'chhxejwempxzaflr'; 
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
+        $mail->Timeout    = 15; // Set timeout to 15 seconds to prevent hanging
+        
+        // Detailed logging for Render
+        $mail->SMTPDebug = 2;
+        $mail->Debugoutput = function($str, $level) {
+            file_put_contents('debug_email.log', date('Y-m-d H:i:s') . " [Level $level]: $str\n", FILE_APPEND);
+        };
 
         // Recipients
         $mail->setFrom('mnnmpevents@gmail.com', 'MNNMP Events');
